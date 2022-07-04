@@ -153,7 +153,7 @@
     <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDevice</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Draws samples from a uniform distribution. Samples are uniformly distributed over</span>
@@ -175,6 +175,10 @@
 <span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc.</span>
 <span class="sd">        (Default value = None).</span>
+<span class="sd">    dtype</span>
+<span class="sd">        desired data type. (Default value = None).</span>
+<span class="sd">    out</span>
+<span class="sd">        optional output array, for writing the result to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -183,7 +187,7 @@
 
 <span class="sd">    Functional Examples</span>
 <span class="sd">    -------------------</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_uniform()</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array(0.26431865)</span>
@@ -195,7 +199,7 @@
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_uniform(0.0, 2.0, device=&quot;cpu&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array(1.89150229)</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_uniform(0.7, 1.0, device=&quot;cpu&quot;, shape=(2, 2))</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array([[0.89629126, 0.94198485],</span>
@@ -203,9 +207,9 @@
 
 <span class="sd">    Instance Method Examples</span>
 <span class="sd">    ------------------------</span>
-<span class="sd">    </span>
+
 <span class="sd">    With :code:`ivy.Container` input:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.random_uniform(), \</span>
 <span class="sd">                          b=ivy.random_uniform(shape=2))</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
@@ -213,7 +217,7 @@
 <span class="sd">    a: ivy.array(0.7550739),</span>
 <span class="sd">    b: ivy.array([0.624, 0.00109])</span>
 <span class="sd">    }</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
         <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span>
@@ -247,6 +251,8 @@
 <span class="sd">        samples are drawn. If size is ``None`` (default), a single value is returned.</span>
 <span class="sd">    device</span>
 <span class="sd">        (Default value = ``None``)</span>
+<span class="sd">    out</span>
+<span class="sd">        optional output array, for writing the result to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -263,11 +269,11 @@
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_normal(shape=3)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array([ 0.811, -0.508, -0.564])</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_normal(0.0,2.0,device=&#39;cpu&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array(-0.7268672)</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_normal(0.7, 1.0, device=&quot;cpu&quot;, shape=(2, 2))</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array([[1.17 , 0.968],</span>
@@ -277,7 +283,7 @@
 <span class="sd">    ------------------------</span>
 
 <span class="sd">    With :code:`ivy.Container` input:</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.random_normal(), \</span>
 <span class="sd">                          b=ivy.random_normal(shape=2))</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
@@ -325,6 +331,8 @@
 <span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc.</span>
 <span class="sd">        (Default value = None)</span>
+<span class="sd">    out</span>
+<span class="sd">        optional output array, for writing the result to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -383,7 +391,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint.html#ivy.functional.ivy.random.randint">[docs]</a><span class="nd">@outputs_to_ivy_arrays</span>
+<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint.html#ivy.functional.ivy.random.randint">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="nd">@handle_out_argument</span>
 <span class="nd">@infer_device</span>
 <span class="nd">@handle_nestable</span>
@@ -421,35 +429,35 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; y = ivy.randint(0, 9, (1,1))</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.randint(0, 9, 1)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[5]])</span>
+<span class="sd">    ivy.array([3])</span>
 
-<span class="sd">    &gt;&gt;&gt; y = ivy.randint(2, 20, (2, 2), device=&#39;cpu&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.randint(2, 20, (2, z2), &#39;cpu&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[5,8],[9,3]])</span>
+<span class="sd">    ivy.array([[ 7,  5],</span>
+<span class="sd">               [15, 15]])</span>
 
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([1, 2, 3])</span>
+<span class="sd">    &gt;&gt;&gt; x = ivy.Array([1, 2, 3])</span>
 <span class="sd">    &gt;&gt;&gt; ivy.randint(0, 10, (3,), out=x)</span>
 <span class="sd">    &gt;&gt;&gt; print(x)</span>
 <span class="sd">    ivy.array([2, 6, 7])</span>
 
-<span class="sd">    &gt;&gt;&gt; y = ivy.zeros((3, 3))</span>
-<span class="sd">    &gt;&gt;&gt; ivy.randint(3, 15, (3, 3), device=&#39;cpu&#39;, out=y)</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.zeros(3, 3)</span>
+<span class="sd">    &gt;&gt;&gt; ivy.randint(3, 15, (3, 3), &#39;gpu:1&#39;, out=y)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array([[ 7,  7,  5],</span>
 <span class="sd">               [12,  8,  8],</span>
 <span class="sd">               [ 8, 11,  3]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">inplace_update</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span></div>
+    <span class="k">return</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="seed"><a class="viewcode-back" href="../../../../functional/ivy/random/seed.html#ivy.functional.ivy.random.seed">[docs]</a><span class="nd">@handle_nestable</span>
-<span class="k">def</span> <span class="nf">seed</span><span class="p">(</span><span class="n">seed_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">seed</span><span class="p">(</span>
+    <span class="n">seed_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Sets the seed for random number generation.</span>
 
 <span class="sd">    Parameters</span>
@@ -470,7 +478,8 @@
 <span class="nd">@handle_out_argument</span>
 <span class="nd">@handle_nestable</span>
 <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span> <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shuffles the given array along axis 0.</span>
 
@@ -478,6 +487,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    x</span>
 <span class="sd">        Input array. Should have a numeric data type.</span>
+<span class="sd">    out</span>
+<span class="sd">        optional output array, for writing the result to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
