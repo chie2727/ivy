@@ -74,14 +74,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../classes/data_classes.html">Data classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../classes/stateful.html">Framework classes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -383,7 +377,7 @@
 <span class="c1"># Optimizer Updates #</span>
 
 
-<div class="viewcode-block" id="optimizer_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/optimizer_update.html#ivy.functional.ivy.gradients.optimizer_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
+<div class="viewcode-block" id="optimizer_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/optimizer_update/optimizer_update_functional.html#ivy.functional.ivy.gradients.optimizer_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="k">def</span> <span class="nf">optimizer_update</span><span class="p">(</span>
     <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">effective_grad</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -432,7 +426,7 @@
     <span class="k">return</span> <span class="n">w</span></div>
 
 
-<div class="viewcode-block" id="gradient_descent_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/gradient_descent_update.html#ivy.functional.ivy.gradients.gradient_descent_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
+<div class="viewcode-block" id="gradient_descent_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/gradient_descent_update/gradient_descent_update_functional.html#ivy.functional.ivy.gradients.gradient_descent_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="k">def</span> <span class="nf">gradient_descent_update</span><span class="p">(</span>
     <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">dcdw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -471,7 +465,7 @@
     <span class="k">return</span> <span class="n">optimizer_update</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dcdw</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">inplace</span><span class="p">,</span> <span class="n">stop_gradients</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="lars_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/lars_update.html#ivy.functional.ivy.gradients.lars_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
+<div class="viewcode-block" id="lars_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/lars_update/lars_update_functional.html#ivy.functional.ivy.gradients.lars_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="k">def</span> <span class="nf">lars_update</span><span class="p">(</span>
     <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">dcdw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -518,7 +512,7 @@
     <span class="k">return</span> <span class="n">gradient_descent_update</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dcdw</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">inplace</span><span class="p">,</span> <span class="n">stop_gradients</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="adam_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/adam_update.html#ivy.functional.ivy.gradients.adam_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
+<div class="viewcode-block" id="adam_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/adam_update/adam_update_functional.html#ivy.functional.ivy.gradients.adam_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="k">def</span> <span class="nf">adam_update</span><span class="p">(</span>
     <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">dcdw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -581,7 +575,7 @@
     <span class="k">return</span> <span class="n">optimizer_update</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">effective_grads</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">inplace</span><span class="p">,</span> <span class="n">stop_gradients</span><span class="p">),</span> <span class="n">mw</span><span class="p">,</span> <span class="n">vw</span></div>
 
 
-<div class="viewcode-block" id="lamb_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/lamb_update.html#ivy.functional.ivy.gradients.lamb_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
+<div class="viewcode-block" id="lamb_update"><a class="viewcode-back" href="../../../../functional/ivy/gradients/lamb_update/lamb_update_functional.html#ivy.functional.ivy.gradients.lamb_update">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="k">def</span> <span class="nf">lamb_update</span><span class="p">(</span>
     <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">dcdw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
