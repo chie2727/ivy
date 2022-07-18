@@ -21,7 +21,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="ivy.Array.zeros_like" href="zeros_like_array.html" />
+    <link rel="next" title="ivy.Container.static_zeros_like" href="static_zeros_like_container.html" />
     <link rel="prev" title="zeros_like" href="../zeros_like.html" /> 
 </head>
 
@@ -64,7 +64,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../ones_like.html">ones_like</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../zeros_like.html">zeros_like</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ivy.zeros_like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="static_zeros_like_container.html">ivy.Container.static_zeros_like</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zeros_like_array.html">ivy.Array.zeros_like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zeros_like_container.html">ivy.Container.zeros_like</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tril.html">tril</a></li>
@@ -164,17 +166,17 @@ array <code class="docutils literal notranslate"><span class="pre">x</span></cod
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – input array from which to derive the output array shape.</p></li>
+<li><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../../../data_classes/array/array/Array.html#ivy.array.array.Array" title="ivy.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – input array from which to derive the output array shape.</p></li>
 <li><p><strong>dtype</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dtype</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeDtype</span></code>]]) – output array data type. If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the output array data type (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
 must be inferred from <code class="docutils literal notranslate"><span class="pre">x</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeDevice</span></code>]]) – device on which to place the created array. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
 output array device must be inferred from <code class="docutils literal notranslate"><span class="pre">x</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>out</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>]) – optional output array, for writing the result to. It must have a shape that the (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+<li><p><strong>out</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="../../../../data_classes/array/array/Array.html#ivy.array.array.Array" title="ivy.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>]) – optional output array, for writing the result to. It must have a shape that the (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
 inputs broadcast to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
+<dd class="field-even"><p><a class="reference internal" href="../../../../data_classes/array/array/Array.html#ivy.array.array.Array" title="ivy.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -190,12 +192,70 @@ inputs broadcast to.</p></li>
 </p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<p class="rubric">Functional Examples</p>
+<p>With ‘ivy.Array’ input:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+<span class="go">ivy.array([0, 0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y2</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+<span class="go">ivy.array([[0., 0., 0.],</span>
+<span class="go">       [0., 0., 0.]])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x3</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y3</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">y3</span><span class="p">)</span>
+<span class="go">ivy.array([0., 0., 0.])</span>
+</pre></div>
+</div>
+<p>With ‘ivy.NativeArray’ input:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">native_array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+<span class="go">ivy.array([[0, 0, 0],</span>
+<span class="go">       [0, 0, 0]])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">native_array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y2</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">IntDtype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+<span class="go">ivy.array([0, 0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
+<p># Array <code class="docutils literal notranslate"><span class="pre">y2</span></code> is now stored on the CPU.</p>
+</div></blockquote>
+<p>With ‘ivy.Container’ input:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">b</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="go">ivy.array([[0, 0, 0],</span>
-<span class="go">           [0, 0, 0]])</span>
+<span class="go">{</span>
+<span class="go">    a: ivy.array([0, 0, 0]),</span>
+<span class="go">    b: ivy.array([0, 0, 0])</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p class="rubric">Instance Method Examples</p>
+<p>With ‘ivy.Array’ input:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">ivy.array([0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
+<p>With ‘ivy.Container’ input:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">]),</span> <span class="n">b</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    a: ivy.array([0., 0.]),</span>
+<span class="go">    b: ivy.array([0., 0.])</span>
+<span class="go">}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -212,7 +272,7 @@ inputs broadcast to.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../zeros_like.html" class="btn btn-neutral float-left" title="zeros_like" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="zeros_like_array.html" class="btn btn-neutral float-right" title="ivy.Array.zeros_like" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="static_zeros_like_container.html" class="btn btn-neutral float-right" title="ivy.Container.static_zeros_like" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

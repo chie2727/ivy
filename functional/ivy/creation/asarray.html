@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="ivy.asarray" href="asarray/asarray_functional.html" />
-    <link rel="prev" title="arange" href="arange.html" /> 
+    <link rel="prev" title="ivy.Container.static_arange" href="arange/static_arange_container.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,6 +60,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">asarray</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="asarray/asarray_functional.html">ivy.asarray</a></li>
 <li class="toctree-l3"><a class="reference internal" href="asarray/asarray_array.html">ivy.Array.asarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asarray/asarray_container.html">ivy.Container.asarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asarray/static_asarray_container.html">ivy.Container.static_asarray</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="zeros.html">zeros</a></li>
@@ -162,7 +164,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – input data, in any form that can be converted to an array. This includes lists,
+<li><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../../data_classes/array/array/Array.html#ivy.array.array.Array" title="ivy.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – input data, in any form that can be converted to an array. This includes lists,
 lists of tuples, tuples, tuples of tuples, tuples of lists and ndarrays.</p></li>
 <li><p><strong>dtype</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dtype</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeDtype</span></code>]]) – datatype, optional. Datatype is inferred from the input data. (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
 <li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeDevice</span></code>]]) – device on which to place the created array. Default: None. (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
@@ -171,7 +173,7 @@ inputs broadcast to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
+<dd class="field-even"><p><a class="reference internal" href="../../../data_classes/array/array/Array.html#ivy.array.array.Array" title="ivy.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -189,19 +191,6 @@ inputs broadcast to.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="ivy.array.array_methods.asarray">
-<span class="sig-prename descclassname">ivy.Array.</span></span><span class="sig-name descname"><span class="pre">asarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/array/creation.html#ArrayWithCreation.asarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.array.array_methods.asarray" title="Permalink to this definition"></a></dt>
-<dd><p>ivy.Array instance method variant of <a href="./asarray/asarray_functional.html">ivy.asarray</a>. This method for <a href="./asarray/asarray_functional.html">ivy.asarray</a> the
-function, and so the docstring for ivy.asarray also applies to this method
-with minimal changes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><strong>Supported Frameworks:</strong></div>
@@ -215,7 +204,7 @@ with minimal changes.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="arange.html" class="btn btn-neutral float-left" title="arange" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arange/static_arange_container.html" class="btn btn-neutral float-left" title="ivy.Container.static_arange" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="asarray/asarray_functional.html" class="btn btn-neutral float-right" title="ivy.asarray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
