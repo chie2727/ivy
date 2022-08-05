@@ -1346,11 +1346,11 @@
 <span class="sd">            +------------------+--------------------------------+</span>
 <span class="sd">            | -1               | 1./sum(1./abs(a))              |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
-<span class="sd">            | -2               | 1./sqrt(sum(1./abs(a)\*\*2))   | </span>
+<span class="sd">            | -2               | 1./sqrt(sum(1./abs(a)/*/*2))   | </span>
 <span class="sd">            +------------------+--------------------------------+</span>
 <span class="sd">            | -inf             | min(abs(a))                    |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
-<span class="sd">            | (int,float &lt; 1)  | sum(abs(a)\*\*ord)\*\*(1./ord) |</span>
+<span class="sd">            | (int,float &lt; 1)  | sum(abs(a)/*/*ord)/*/*(1./ord) |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
 
 <span class="sd">            Default: ``2``.</span>
@@ -1370,6 +1370,7 @@
 <span class="sd">             a rank which is ``n`` less than the rank of ``x``. The returned</span>
 <span class="sd">            array must have a floating-point data type determined</span>
 <span class="sd">            by :ref:`type-promotion`.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ContainerBase</span><span class="o">.</span><span class="n">multi_map_in_static_method</span><span class="p">(</span>
             <span class="s2">&quot;vector_norm&quot;</span><span class="p">,</span>
@@ -1444,11 +1445,11 @@
 <span class="sd">            +------------------+--------------------------------+</span>
 <span class="sd">            | -1               | 1./sum(1./abs(a))              |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
-<span class="sd">            | -2               | 1./sqrt(sum(1./abs(a)\*\*2))   | </span>
+<span class="sd">            | -2               | 1./sqrt(sum(1./abs(a)/*/*2))   | </span>
 <span class="sd">            +------------------+--------------------------------+</span>
 <span class="sd">            | -inf             | min(abs(a))                    |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
-<span class="sd">            | (int,float &lt; 1)  | sum(abs(a)\*\*ord)\*\*(1./ord) |</span>
+<span class="sd">            | (int,float &lt; 1)  | sum(abs(a)/*/*ord)/*/*(1./ord) |</span>
 <span class="sd">            +------------------+--------------------------------+</span>
 
 <span class="sd">            Default: ``2``.</span>
@@ -1467,6 +1468,7 @@
 <span class="sd">            array must have a rank which is ``n`` less than the rank of</span>
 <span class="sd">            ``x``. The returned array must have a floating-point data type</span>
 <span class="sd">            determined by :ref:`type-promotion`.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_vector_norm</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
